@@ -1,0 +1,28 @@
+dat=data.frame(cars)
+par(mfrow=c(2,2))
+#plot(cars,cex = 1.5, col = "dark red",cex.lab=2,col.lab="yellow")
+plot(x<-cars,cex=1.5, col = "dark red",cex.lab=2,col.lab="green")
+points(c(23,26),c(60,61),cex=2,col="dark blue")
+hist(dat$speed,dat$dist,xlim = c(0,50),breaks = 4)
+
+
+
+disp=layout(matrix(c(1,2,3,0),2,2),TRUE)
+plot(x<-cars,cex=1.5, col = "dark red",cex.lab=2,col.lab="green")
+hist(dat$speed,dat$dist,xlim = c(0,50),breaks = 4)
+hist(dat$dist,dat$speed,xlim = c(0,50),breaks = 4)
+
+
+library(lattice)
+data=data.frame(read.csv("sampledataset.csv",sep = ";"))
+
+barchart(data$gd~data$win|data$team,groups=data$team,horiz=FALSE)
+
+
+hist(data$win,groups=data$team)
+
+
+
+xyplot(data$gd~data$gs|data$home,groups=data$team)
+
+xyplot.ts(data$gd,col = list("red"))
